@@ -97,6 +97,14 @@ class Chef
           init_env = {}
         end
 
+        if opts[:user] && node[:platform] == 'mac_os_x'
+          ENV['TMP'] = "/Users/#{opts[:user]}/.tmp"
+          directory ENV['TMP'] do
+            owner opts[:user]
+            not_if { File.directory?(ENV['TMP']) }
+          end
+        end
+
         bash "Initialize rbenv (#{opts[:user] || 'system'})" do
           code %(PATH="#{prefix}/bin:$PATH" rbenv init -)
           environment({ 'RBENV_ROOT' => prefix }.merge(init_env))
