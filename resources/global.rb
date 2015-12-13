@@ -22,7 +22,7 @@
 actions :create
 default_action :create
 
-provides :rbenv_global
+provides :rbenv_global if respond_to?(:provides)
 
 attribute :rbenv_version, kind_of: String, name_attribute: true
 attribute :user,          kind_of: String

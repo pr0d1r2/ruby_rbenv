@@ -22,7 +22,7 @@
 actions :run
 default_action :run
 
-provides :rbenv_rehash
+provides :rbenv_rehash if respond_to?(:provides)
 
 attribute :name,      kind_of: String, name_attribute: true
 attribute :user,      kind_of: String

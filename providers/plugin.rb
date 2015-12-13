@@ -25,7 +25,7 @@ end
 
 use_inline_resources
 
-provides :rbenv_plugin
+provides :rbenv_plugin if respond_to?(:provides)
 
 include Chef::Rbenv::ScriptHelpers
 

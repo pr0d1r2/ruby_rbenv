@@ -2,7 +2,7 @@ actions :install
 
 default_action :install
 
-provides :rbenv_plugin
+provides :rbenv_plugin if respond_to?(:provides)
 
 attribute :name,      kind_of: String, name_attribute: true
 attribute :git_url,   kind_of: String

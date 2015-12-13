@@ -22,7 +22,7 @@
 actions :install, :reinstall
 default_action :install
 
-provides :rbenv_ruby
+provides :rbenv_ruby if respond_to?(:provides)
 
 attribute :definition, kind_of: String, name_attribute: true
 attribute :definition_file,	kind_of: String

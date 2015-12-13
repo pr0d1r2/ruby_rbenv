@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-provides :rbenv_ruby
+provides :rbenv_ruby if respond_to?(:provides)
 
 include Chef::Rbenv::ScriptHelpers
 

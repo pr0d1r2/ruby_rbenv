@@ -22,7 +22,7 @@
 actions :run
 default_action :run
 
-provides :rbenv_script
+provides :rbenv_script if respond_to?(:provides)
 
 attribute :name,          kind_of: String, name_attribute: true
 attribute :rbenv_version, kind_of: String

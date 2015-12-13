@@ -22,7 +22,7 @@
 actions :install, :upgrade, :remove, :purge
 default_action :install
 
-provides :rbenv_gem
+provides :rbenv_gem if respond_to?(:provides)
 
 attribute :package_name,  kind_of: String, name_attribute: true
 attribute :rbenv_version, kind_of: String, default: 'global'
