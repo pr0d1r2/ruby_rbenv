@@ -39,7 +39,7 @@ class Chef
       def install_rbenv_pkg_prereqs
         return if mac_with_no_homebrew
 
-        node['rbenv']['install_pkgs'].each do |pkg|
+        node['rbenv']['install_pkgs'].flatten.each do |pkg|
           package pkg
         end
       end
